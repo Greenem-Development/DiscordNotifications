@@ -1,0 +1,103 @@
+<project>
+  <path id="build.classpath">
+    <fileset dir="C:\Users\andrey\Downloads">
+      <include name="spigot-1.16.2.jar"/>
+      <!--include name="**/*.jar"/>
+      <include name="**/*.zip"/-->
+    </fileset>
+  </path>
+
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile" depends="clean">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes">
+          <classpath refid="build.classpath"/>
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile, yamlCopy">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/DiscordNotifications.jar" basedir="build/classes">
+            <!--manifest>
+                <attribute name="Main-Class" value="oata.HelloWorld"/>
+            </manifest-->
+        </jar>
+    </target>
+
+    <target name="yamlCopy">
+      <copy todir="build/classes" verbose="yes" flatten="yes" failonerror="no">    
+        <fileset dir=".">    
+          <include name="plugin.yml" />    
+        </fileset>    
+      </copy>
+    </target>
+
+    <target name="distr1">
+      <copy todir="G:\SERVERS\Server 1\plugins\" verbose="yes" flatten="yes" failonerror="no">    
+        <fileset dir="build/jar">    
+          <include name="DiscordNotifications.jar" />    
+        </fileset>    
+      </copy>
+    </target>
+
+    <target name="distr2">
+      <copy todir="G:\SERVERS\Server2\plugins\" verbose="yes" flatten="yes" failonerror="no">    
+        <fileset dir="build/jar">    
+          <include name="DiscordNotifications.jar" />    
+        </fileset>    
+      </copy>
+    </target>
+
+    <target name="distr3">
+      <copy todir="G:\SERVERS\PluginTests\plugins\" verbose="yes" flatten="yes" failonerror="no">    
+        <fileset dir="build/jar">    
+          <include name="DiscordNotifications.jar" />    
+        </fileset>    
+      </copy>
+    </target>
+
+    <target name="distr4">
+      <copy todir="G:\SERVERS\GreenemServer\plugins\" verbose="yes" flatten="yes" failonerror="no">    
+        <fileset dir="build/jar">    
+          <include name="DiscordNotifications.jar" />    
+        </fileset>    
+      </copy>
+    </target>
+
+    <target name="distr5">
+      <copy todir="G:\SERVERS\Server5\plugins\" verbose="yes" flatten="yes" failonerror="no">    
+        <fileset dir="build/jar">    
+          <include name="DiscordNotifications.jar" />    
+        </fileset>    
+      </copy>
+    </target>
+
+    <target name="distr6">
+      <copy todir="G:\SERVERS\Server6\plugins\" verbose="yes" flatten="yes" failonerror="no">    
+        <fileset dir="build/jar">    
+          <include name="DiscordNotifications.jar" />    
+        </fileset>    
+      </copy>
+    </target>
+
+    <target name="distr7">
+      <copy todir="G:\SERVERS\Greenem SMP\plugins\" verbose="yes" flatten="yes" failonerror="no">    
+        <fileset dir="build/jar">    
+          <include name="DiscordNotifications.jar" />    
+        </fileset>    
+      </copy>
+    </target>
+
+    <target name="distr" depends="jar,distr1,distr2,distr3,distr4,distr5,distr6,distr7">
+      <copy todir="G:\SERVERS\Server6\plugins\" verbose="yes" flatten="yes" failonerror="no">    
+        <fileset dir="build/jar">    
+          <include name="DiscordNotifications.jar" />    
+        </fileset>    
+      </copy>
+    </target>
+
+</project>

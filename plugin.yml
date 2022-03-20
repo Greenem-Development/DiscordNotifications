@@ -1,0 +1,4 @@
+name: DiscordNotifications
+main: me.greenem.DiscordNotifications.PluginPart
+version: 1.0
+api-version: 1.16
